@@ -1,0 +1,15 @@
+[X6_uniform40] 40 sensors, cfg={"hidden_layers": 6, "hidden_units": 32, "adam_lr": 0.001, "adam_epochs": 10000, "lbfgs_iters": 400, "nu_lr_scale": 1.0, "loss_weights": {"data": 100, "pde": 10, "bc": 10}, "collocation_points": 2500, "resample_every": 200, "seed": 0, "threads": 2, "input_norm": true, "lr_final_frac": 0.05, "rar_frac": 0.3, "outlet_bc": true, "checkpoint_path": "data/robust/X6_uniform40/partial.pt"}
+  [adam] epoch=     0 total=227.1025 data=2.07610 pde=0.50835 bc=1.44091 nu=0.02002
+  [adam] epoch=  1000 total=2.3507 data=0.00992 pde=0.08513 bc=0.05073 nu=0.00928
+  [adam] epoch=  2000 total=1.2094 data=0.00639 pde=0.02755 bc=0.02948 nu=0.00743
+  [adam] epoch=  3000 total=0.8965 data=0.00569 pde=0.02034 bc=0.01245 nu=0.00689
+  [adam] epoch=  4000 total=0.7670 data=0.00518 pde=0.01680 bc=0.00814 nu=0.00617
+  [adam] epoch=  5000 total=0.6882 data=0.00489 pde=0.01302 bc=0.00690 nu=0.00550
+  [adam] epoch=  6000 total=0.6443 data=0.00459 pde=0.01502 bc=0.00348 nu=0.00517
+  [adam] epoch=  7000 total=0.5840 data=0.00418 pde=0.01264 bc=0.00398 nu=0.00488
+[X6_uniform40] 40 sensors, cfg={"hidden_layers": 6, "hidden_units": 32, "adam_lr": 0.001, "adam_epochs": 10000, "lbfgs_iters": 400, "nu_lr_scale": 1.0, "loss_weights": {"data": 100, "pde": 10, "bc": 10}, "collocation_points": 2500, "resample_every": 200, "seed": 0, "threads": 2, "input_norm": true, "lr_final_frac": 0.05, "rar_frac": 0.3, "outlet_bc": true, "checkpoint_path": "data/robust/X6_uniform40/partial.pt"}
+  resumed from epoch 7000
+  [adam] epoch=  7000 total=0.5840 data=0.00418 pde=0.01264 bc=0.00398 nu=0.00488
+  [adam] epoch=  8000 total=0.5793 data=0.00388 pde=0.01570 bc=0.00346 nu=0.00475
+  [adam] epoch=  9000 total=0.5195 data=0.00379 pde=0.01139 bc=0.00261 nu=0.00467
+[X6_uniform40] 13.7 min | field 0.041 vort 0.133 wake-vort 0.143 wss 0.134 nu_err 0.076 (nu=0.00462)

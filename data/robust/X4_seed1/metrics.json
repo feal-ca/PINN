@@ -1,0 +1,42 @@
+{
+ "name": "X4_seed1",
+ "minutes": 14.7,
+ "sensors": "zones:0-2:6,2-4:14,4-6.5:14,6.5-9:6",
+ "sensor_seed": 1,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 1.0,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 2,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "outlet_bc": true,
+  "checkpoint_path": "data/robust/X4_seed1/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.04131443323257225,
+  "field_v": 0.18678365720114812,
+  "field_mag": 0.04066949615277494,
+  "vorticity": 0.11765761208800649,
+  "vorticity_wake": 0.10254125991283641,
+  "pressure": 0.05497056376774076,
+  "wss": 0.1312777603163406,
+  "wss_true_nu": 0.10392955913895438,
+  "wss_peak_ratio": 1.1194748813569724,
+  "nu_true": 0.005,
+  "nu_recovered": 0.005316090284720605,
+  "nu_error": 0.0632180569441209
+ }
+}

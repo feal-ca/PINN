@@ -1,0 +1,42 @@
+{
+ "name": "X5_seed2",
+ "minutes": 13.3,
+ "sensors": "zones:0-2:6,2-4:14,4-6.5:14,6.5-9:6",
+ "sensor_seed": 2,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 1.0,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 2,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "outlet_bc": true,
+  "checkpoint_path": "data/robust/X5_seed2/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.05054245603314104,
+  "field_v": 0.23675536242788878,
+  "field_mag": 0.0498620526908757,
+  "vorticity": 0.14117019595346975,
+  "vorticity_wake": 0.14655927000871882,
+  "pressure": 0.09399959379659813,
+  "wss": 0.10747214428311058,
+  "wss_true_nu": 0.1263592139475605,
+  "wss_peak_ratio": 0.9876234298533892,
+  "nu_true": 0.005,
+  "nu_recovered": 0.005218433520846419,
+  "nu_error": 0.04368670416928372
+ }
+}

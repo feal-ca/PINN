@@ -1,0 +1,41 @@
+{
+ "name": "R3_w50",
+ "minutes": 34.5,
+ "sensors": "zones:0-2:3,2-4:7,4-6.5:7,6.5-9:3",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 0.3,
+  "loss_weights": {
+   "data": 100,
+   "pde": 50,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "checkpoint_path": "data/screen_long/R3_w50/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.05329089885144304,
+  "field_v": 0.24997547616663793,
+  "field_mag": 0.05154106485425006,
+  "vorticity": 0.14794157491809468,
+  "vorticity_wake": 0.13551385319753315,
+  "pressure": 0.36390394590953673,
+  "wss": 0.21821555614384658,
+  "wss_true_nu": 0.28880761469714833,
+  "wss_peak_ratio": 1.0954532258536207,
+  "nu_true": 0.005,
+  "nu_recovered": 0.0075023675106399255,
+  "nu_error": 0.500473502127985
+ }
+}

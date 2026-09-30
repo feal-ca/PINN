@@ -1,0 +1,10 @@
+[D_zoned] 20 sensors, cfg={"hidden_layers": 6, "hidden_units": 32, "adam_lr": 0.001, "adam_epochs": 8000, "lbfgs_iters": 300, "nu_lr_scale": 0.3, "loss_weights": {"data": 100.0, "pde": 1.0, "bc": 10.0}, "collocation_points": 1500, "resample_every": 200, "seed": 0, "threads": 3, "input_norm": true, "lr_final_frac": 0.05, "rar_frac": 0.3, "checkpoint_path": "data/screen_v1/D_zoned/partial.pt"}
+  [adam] epoch=     0 total=269.2876 data=2.54182 pde=0.58916 bc=1.45161 nu=0.02001
+  [adam] epoch=  1000 total=1.5268 data=0.00548 pde=0.69488 bc=0.02837 nu=0.01457
+  [adam] epoch=  2000 total=0.9502 data=0.00318 pde=0.46414 bc=0.01680 nu=0.01245
+  [adam] epoch=  3000 total=0.6768 data=0.00212 pde=0.31265 bc=0.01525 nu=0.01112
+  [adam] epoch=  4000 total=0.5450 data=0.00159 pde=0.24301 bc=0.01427 nu=0.01015
+  [adam] epoch=  5000 total=0.4427 data=0.00134 pde=0.20103 bc=0.01079 nu=0.00945
+  [adam] epoch=  6000 total=0.3775 data=0.00116 pde=0.17425 bc=0.00873 nu=0.00900
+  [adam] epoch=  7000 total=0.3247 data=0.00109 pde=0.14164 bc=0.00742 nu=0.00874
+[D_zoned] 19.3 min | field 0.056 vort 0.169 wake-vort 0.177 wss 0.348 nu_err 0.721 (nu=0.00861)

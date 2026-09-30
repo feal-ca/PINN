@@ -1,0 +1,10 @@
+[C_wide] 20 sensors, cfg={"hidden_layers": 4, "hidden_units": 96, "adam_lr": 0.001, "adam_epochs": 8000, "lbfgs_iters": 300, "nu_lr_scale": 0.3, "loss_weights": {"data": 100.0, "pde": 1.0, "bc": 10.0}, "collocation_points": 1500, "resample_every": 200, "seed": 0, "threads": 3, "input_norm": true, "lr_final_frac": 0.05, "rar_frac": 0.3, "checkpoint_path": "data/screen_v1/C_wide/partial.pt"}
+  [adam] epoch=     0 total=291.9645 data=2.76794 pde=0.24380 bc=1.49270 nu=0.02001
+  [adam] epoch=  1000 total=1.1147 data=0.00351 pde=0.54751 bc=0.02160 nu=0.01467
+  [adam] epoch=  2000 total=0.7870 data=0.00282 pde=0.35049 bc=0.01544 nu=0.01266
+  [adam] epoch=  3000 total=0.5135 data=0.00140 pde=0.26426 bc=0.01096 nu=0.01133
+  [adam] epoch=  4000 total=0.3969 data=0.00115 pde=0.19885 bc=0.00826 nu=0.01043
+  [adam] epoch=  5000 total=0.3280 data=0.00101 pde=0.17973 bc=0.00476 nu=0.00987
+  [adam] epoch=  6000 total=0.3154 data=0.00093 pde=0.18520 bc=0.00372 nu=0.00944
+  [adam] epoch=  7000 total=0.2597 data=0.00085 pde=0.14143 bc=0.00336 nu=0.00918
+[C_wide] 31.6 min | field 0.060 vort 0.168 wake-vort 0.155 wss 0.626 nu_err 0.810 (nu=0.00905)

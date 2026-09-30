@@ -1,0 +1,42 @@
+{
+ "name": "X6_uniform40",
+ "minutes": 13.7,
+ "sensors": "zones:0-9:40",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 1.0,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 2,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "outlet_bc": true,
+  "checkpoint_path": "data/robust/X6_uniform40/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.04259417865852194,
+  "field_v": 0.19658127439477988,
+  "field_mag": 0.04115984780225156,
+  "vorticity": 0.13286593506617708,
+  "vorticity_wake": 0.14279848780093804,
+  "pressure": 0.1708648807930146,
+  "wss": 0.13404781731406817,
+  "wss_true_nu": 0.18788317675483787,
+  "wss_peak_ratio": 1.0478759825985982,
+  "nu_true": 0.005,
+  "nu_recovered": 0.004620142055788734,
+  "nu_error": 0.07597158884225327
+ }
+}

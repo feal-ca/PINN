@@ -1,0 +1,42 @@
+{
+ "name": "R6_outlet_nu1",
+ "minutes": 34.8,
+ "sensors": "zones:0-2:3,2-4:7,4-6.5:7,6.5-9:3",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 1.0,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "outlet_bc": true,
+  "checkpoint_path": "data/screen_long/R6_outlet_nu1/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.10163374290402306,
+  "field_v": 0.3194247889333878,
+  "field_mag": 0.10000774705844288,
+  "vorticity": 0.23018214436306358,
+  "vorticity_wake": 0.21968945279905347,
+  "pressure": 0.22599366780171612,
+  "wss": 0.6747275014391986,
+  "wss_true_nu": 0.45910933326484477,
+  "wss_peak_ratio": 0.36898874171038587,
+  "nu_true": 0.005,
+  "nu_recovered": 0.002942447319557913,
+  "nu_error": 0.4115105360884174
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "name": "R2_w10",
+ "minutes": 34.5,
+ "sensors": "zones:0-2:3,2-4:7,4-6.5:7,6.5-9:3",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 0.3,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "checkpoint_path": "data/screen_long/R2_w10/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.055397990378557194,
+  "field_v": 0.2763672656386673,
+  "field_mag": 0.0534389729366542,
+  "vorticity": 0.15591779112156595,
+  "vorticity_wake": 0.15269492106684215,
+  "pressure": 0.2999058252067806,
+  "wss": 0.18144449761411222,
+  "wss_true_nu": 0.2671733468697819,
+  "wss_peak_ratio": 1.0899890743218261,
+  "nu_true": 0.005,
+  "nu_recovered": 0.0072198673881200106,
+  "nu_error": 0.4439734776240021
+ }
+}

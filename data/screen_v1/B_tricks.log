@@ -1,0 +1,10 @@
+[B_tricks] 20 sensors, cfg={"hidden_layers": 6, "hidden_units": 32, "adam_lr": 0.001, "adam_epochs": 8000, "lbfgs_iters": 300, "nu_lr_scale": 0.3, "loss_weights": {"data": 100.0, "pde": 1.0, "bc": 10.0}, "collocation_points": 1500, "resample_every": 200, "seed": 0, "threads": 3, "input_norm": true, "lr_final_frac": 0.05, "rar_frac": 0.3, "checkpoint_path": "data/screen_v1/B_tricks/partial.pt"}
+  [adam] epoch=     0 total=380.9185 data=3.65813 pde=0.58916 bc=1.45161 nu=0.02001
+  [adam] epoch=  1000 total=1.6604 data=0.00544 pde=0.82536 bc=0.02913 nu=0.01413
+  [adam] epoch=  2000 total=0.8997 data=0.00392 pde=0.35548 bc=0.01523 nu=0.01251
+  [adam] epoch=  3000 total=0.6272 data=0.00301 pde=0.22490 bc=0.01012 nu=0.01147
+  [adam] epoch=  4000 total=0.5426 data=0.00232 pde=0.23103 bc=0.00794 nu=0.01065
+  [adam] epoch=  5000 total=0.4462 data=0.00210 pde=0.17386 bc=0.00620 nu=0.01003
+  [adam] epoch=  6000 total=0.4098 data=0.00192 pde=0.16315 bc=0.00548 nu=0.00966
+  [adam] epoch=  7000 total=0.3675 data=0.00175 pde=0.14131 bc=0.00511 nu=0.00940
+[B_tricks] 19.1 min | field 0.057 vort 0.157 wake-vort 0.129 wss 0.566 nu_err 0.855 (nu=0.00927)

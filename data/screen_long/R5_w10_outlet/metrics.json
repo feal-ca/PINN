@@ -1,0 +1,42 @@
+{
+ "name": "R5_w10_outlet",
+ "minutes": 36.6,
+ "sensors": "zones:0-2:3,2-4:7,4-6.5:7,6.5-9:3",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 0.3,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "outlet_bc": true,
+  "checkpoint_path": "data/screen_long/R5_w10_outlet/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.06212078304450882,
+  "field_v": 0.2995673540631941,
+  "field_mag": 0.0608660622705452,
+  "vorticity": 0.1618642313350553,
+  "vorticity_wake": 0.15979666541031437,
+  "pressure": 0.2971690666049649,
+  "wss": 0.156163441159381,
+  "wss_true_nu": 0.27241382547189086,
+  "wss_peak_ratio": 1.0689367222096675,
+  "nu_true": 0.005,
+  "nu_recovered": 0.007209976403965088,
+  "nu_error": 0.44199528079301753
+ }
+}

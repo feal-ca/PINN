@@ -1,0 +1,41 @@
+{
+ "name": "B_tricks",
+ "minutes": 19.1,
+ "sensors": "random:20",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 8000,
+  "lbfgs_iters": 300,
+  "nu_lr_scale": 0.3,
+  "loss_weights": {
+   "data": 100.0,
+   "pde": 1.0,
+   "bc": 10.0
+  },
+  "collocation_points": 1500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "checkpoint_path": "data/screen_v1/B_tricks/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.05781393794532909,
+  "field_v": 0.32139919213520324,
+  "field_mag": 0.05706291462855931,
+  "vorticity": 0.15706026685331603,
+  "vorticity_wake": 0.12871553938786498,
+  "pressure": 0.30287221361673733,
+  "wss": 0.5663695316135646,
+  "wss_true_nu": 0.1920618046027604,
+  "wss_peak_ratio": 1.5240577913412037,
+  "nu_true": 0.005,
+  "nu_recovered": 0.009273924186335075,
+  "nu_error": 0.854784837267015
+ }
+}

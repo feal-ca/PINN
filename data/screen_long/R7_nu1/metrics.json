@@ -1,0 +1,41 @@
+{
+ "name": "R7_nu1",
+ "minutes": 33.8,
+ "sensors": "zones:0-2:3,2-4:7,4-6.5:7,6.5-9:3",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 1.0,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "checkpoint_path": "data/screen_long/R7_nu1/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.12040331394099357,
+  "field_v": 0.39474679738056734,
+  "field_mag": 0.11890015812560062,
+  "vorticity": 0.2832126041035327,
+  "vorticity_wake": 0.25603128884293375,
+  "pressure": 0.2218364915572603,
+  "wss": 0.7337580403096887,
+  "wss_true_nu": 0.5637172560767059,
+  "wss_peak_ratio": 0.3344638272076574,
+  "nu_true": 0.005,
+  "nu_recovered": 0.0029485907443432035,
+  "nu_error": 0.41028185113135934
+ }
+}

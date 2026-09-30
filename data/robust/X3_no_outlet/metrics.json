@@ -1,0 +1,42 @@
+{
+ "name": "X3_no_outlet",
+ "minutes": 12.8,
+ "sensors": "zones:0-2:6,2-4:14,4-6.5:14,6.5-9:6",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 1.0,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 2,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "outlet_bc": false,
+  "checkpoint_path": "data/robust/X3_no_outlet/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.04597395213195231,
+  "field_v": 0.2725850867133456,
+  "field_mag": 0.045546544169251656,
+  "vorticity": 0.11568576909501804,
+  "vorticity_wake": 0.12508939348156115,
+  "pressure": 0.09151295127947093,
+  "wss": 0.14955441768178146,
+  "wss_true_nu": 0.14456189751428766,
+  "wss_peak_ratio": 0.9035697636173666,
+  "nu_true": 0.005,
+  "nu_recovered": 0.004957613104393079,
+  "nu_error": 0.00847737912138425
+ }
+}

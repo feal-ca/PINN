@@ -1,0 +1,112 @@
+# Phase 2: pulsatile (cardiac-cycle-like) flow through the same stenosed channel.
+# Inherits the Phase 1 geometry/grid/Reynolds number; adds time.
+
+geometry:
+  H: 1.0
+  Lx: 5.0
+  stenosis_x0: 2.0
+  stenosis_pct_ds: 50
+  stenosis_sigma: 0.4
+  eccentric: true
+
+grid:
+  # Same fix as Phase 1: 50%DS needs 640x128 to avoid the staircase-corner
+  # blow-up at coarser resolution (dev-log 2026-08-26).
+  nx: 640
+  ny: 128
+
+flow:
+  U0: 1.0
+  reynolds: 200
+
+pulsatile:
+  # Two-harmonic asymmetric waveform (fast systole, slower diastole) --
+  # see src/pinn_bloodflow/solver/waveform.py for the derivation and why a
+  # plain sine was rejected. amplitude_fundamental/harmonic feed
+  # cardiac_pulse() directly.
+  period_T: 1.0
+  amplitude_fundamental: 0.55
+  amplitude_harmonic: 0.20
+  # Domain transit time ~ Lx/U0 = 5 time units, longer than one period (1)
+  # -- checked empirically (dev-log 2026-08-28): periodicity residual
+  # (|u(t0) - u(t0+T)| / |u|, one period apart) was 8.6% at 6 cycles and
+  # 1.5% at 10. The whole run only costs ~3-5 min at this grid, so there's
+  # no reason to settle for the noisier number -- using 10 cycles.
+  n_cycles: 10
+  record_from_cycle: 9   # record only the final cycle
+  snapshots_per_cycle: 80
+
+solver:
+  cfl_safety: 0.5
+
+sensors:
+  n_points: 20
+  wall_margin_frac: 0.08
+  noise_level: 0.07
+  snapshots_per_cycle: 18   # sparser in time than the ground-truth solver output
+  # Fully uniform placement put only 1 of 20 probes within 0.5 units of the
+  # throat, and not even near the wall (dev-log 2026-08-28) -- leaving the
+  # PINN with essentially no direct data at the one location the headline
+  # WSS(t) result is evaluated. Reserving a third of the probes for the
+  # throat neighborhood also matches how a real Doppler exam would actually
+  # be conducted (image the suspected narrowing on purpose).
+  throat_frac: 0.3
+  throat_half_width: 0.6
+  seed: 0
+
+pinn:
+  # Matches Phase 1's 6x32 exactly (not the original 7x48 plan) for two
+  # reasons: it's what warm-starting from the Phase 1 checkpoint requires
+  # (see train_phase2.py's _warm_start_from_phase1 -- deeper layers are
+  # copied verbatim, which needs matching shapes), and Phase 1 already
+  # established 6x32 as the CPU-feasible size for this problem's cost per
+  # collocation point. The unsteady residual adds a 3rd second-derivative
+  # pass (u_t, v_t) per point, so epoch count/collocation_points are cut
+  # further versus the original plan -- to be re-checked with a timed
+  # smoke test before the real run, same as Phase 1 (dev-log 2026-08-26).
+  hidden_layers: 6
+  hidden_units: 32
+  # Fourier time features (dev-log 2026-08-28): feed sin/cos of the
+  # cardiac fundamental and 2nd harmonic (matching cardiac_pulse's own
+  # two-harmonic construction) instead of raw t. Fixes an amplitude-
+  # damping failure mode where a plain MLP learned the right phase/shape
+  # of the pulsatile cycle but compressed the peak-to-trough swing by
+  # ~2x -- severe enough to flatten the derived WSS(t) curve almost
+  # entirely. As a side effect this makes the network exactly periodic in
+  # t by construction, so periodicity_loss below is now a diagnostic
+  # rather than a load-bearing constraint.
+  fourier_harmonics: 2
+  adam_lr: 1.0e-3
+  # Timed directly (dev-log 2026-08-28): the unsteady residual (u_t, v_t on
+  # top of the same second-derivative terms Phase 1 needed) makes each
+  # epoch ~0.19s at collocation_points=1200 -- ~5x Phase 1's per-epoch
+  # cost. 8000 epochs is the budget that keeps total Adam time in the same
+  # ballpark (~25 min) as Phase 1's full run.
+  adam_epochs: 8000
+  lbfgs_iters: 300
+  loss_weights:
+    data: 100.0
+    # pde=1.0 (Phase 1's value) let the PDE loss climb during training
+    # instead of converging (0.6 -> 1.86 over 1800 epochs) -- the unsteady
+    # residual's extra u_t/v_t terms make it a harder constraint than
+    # Phase 1's steady one, and at equal-ish weight it was simply
+    # outcompeted by data+bc+periodicity. A quick 1800-epoch A/B (dev-log
+    # 2026-08-28) confirmed pde=20 converges cleanly to ~0.05-0.09 without
+    # visibly hurting the other terms.
+    pde: 20.0
+    bc: 10.0
+    periodicity: 10.0
+  collocation_points: 1200
+  # Tried concentrating collocation points near walls to help WSS (both
+  # domain-wide and throat-concentrated variants -- see
+  # `_sample_near_wall_xy`) -- both made field *and* WSS error worse, not
+  # better (dev-log 2026-08-28): diluting bulk-flow coverage cost more
+  # than the near-wall resolution gained, and the real bottleneck turned
+  # out to be missing *sensor data* near the throat, not missing
+  # collocation points there (fixed instead via sensors.throat_frac
+  # above). Left at 0 -- the capability and its tests stay in the code as
+  # a documented negative result, not deleted.
+  near_wall_collocation_frac: 0.0
+  resample_every: 200
+  warm_start_from_phase1: true
+  seed: 0

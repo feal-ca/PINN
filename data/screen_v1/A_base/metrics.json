@@ -1,0 +1,38 @@
+{
+ "name": "A_base",
+ "minutes": 17.8,
+ "sensors": "random:20",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 8000,
+  "lbfgs_iters": 300,
+  "nu_lr_scale": 0.3,
+  "loss_weights": {
+   "data": 100.0,
+   "pde": 1.0,
+   "bc": 10.0
+  },
+  "collocation_points": 1500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "checkpoint_path": "data/screen_v1/A_base/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.05993157789435744,
+  "field_v": 0.2952332830141384,
+  "field_mag": 0.05834949557182343,
+  "vorticity": 0.1647895804873383,
+  "vorticity_wake": 0.15653777940145827,
+  "pressure": 0.1654012680771321,
+  "wss": 0.17251031068753128,
+  "wss_true_nu": 0.22622993048153467,
+  "wss_peak_ratio": 0.8878337644425399,
+  "nu_true": 0.005,
+  "nu_recovered": 0.005424853144429603,
+  "nu_error": 0.08497062888592061
+ }
+}

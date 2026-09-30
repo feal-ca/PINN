@@ -1,0 +1,4 @@
+usage: experiment.py [-h] --name NAME [--config CONFIG] [--gt GT]
+                     [--sensors SENSORS] [--sensor-seed SENSOR_SEED]
+                     [--set OVERRIDES] [--out-dir OUT_DIR]
+experiment.py: error: unrecognized arguments: --config configs/phase1_steady_v1.yaml --gt data/v1/phase1_steady.npz --out-dir data/screen_v1 --set adam_epochs=8000 --set lbfgs_iters=300 --set threads=3

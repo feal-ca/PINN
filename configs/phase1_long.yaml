@@ -1,0 +1,55 @@
+# Phase 1: steady-state 2D flow through a stenosed channel.
+# All quantities are nondimensional (length by H, velocity by U0).
+
+geometry:
+  H: 1.0              # channel height (nondimensional reference length)
+  Lx: 9.0             # domain length, in units of H
+  stenosis_x0: 2.0    # stenosis center, in units of H
+  stenosis_pct_ds: 50 # percent diameter stenosis (clinical severity metric)
+  stenosis_sigma: 0.4 # Gaussian bump width, in units of H
+  eccentric: true     # one-sided (eccentric) bump vs. symmetric
+
+grid:
+  # 320x64 looked adequate on paper but produces a spurious, unbounded
+  # velocity spike at the stenosis's staircase corners for pct_ds >= 30
+  # (a known artifact of simple immersed-boundary masking, not a physical
+  # instability -- see dev-log 2026-08-26). 640x128 resolves it cleanly.
+  nx: 1152
+  ny: 128
+
+flow:
+  U0: 1.0             # inlet mean velocity (nondimensional reference)
+  reynolds: 200       # Re = U0 * H / nu
+
+solver:
+  cfl_safety: 0.5
+  convergence_tol: 1.0e-6
+  max_steps: 40000
+
+sensors:
+  n_points: 40
+  wall_margin_frac: 0.08   # exclude this fraction of H near any wall/stenosis surface
+  noise_level: 0.07        # fraction of U0, additive Gaussian
+  seed: 0
+
+pinn:
+  # Final settings behind the article (run R8_40sensors). Reproduce with
+  #   python scripts/experiment.py --name final --set threads=3
+  # about 35 minutes on three CPU threads.
+  hidden_layers: 6
+  hidden_units: 32
+  adam_lr: 1.0e-3
+  adam_epochs: 10000
+  lbfgs_iters: 400
+  nu_lr_scale: 1.0
+  loss_weights:
+    data: 100.0
+    pde: 10.0
+    bc: 10.0
+  collocation_points: 2500
+  resample_every: 200
+  rar_frac: 0.3          # share of collocation points picked where the residual is largest
+  input_norm: true
+  lr_final_frac: 0.05    # cosine decay of the learning rate
+  outlet_bc: true
+  seed: 0

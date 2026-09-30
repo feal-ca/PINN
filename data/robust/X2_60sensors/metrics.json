@@ -1,0 +1,42 @@
+{
+ "name": "X2_60sensors",
+ "minutes": 13.7,
+ "sensors": "zones:0-2:9,2-4:21,4-6.5:21,6.5-9:9",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 1.0,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 2,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "outlet_bc": true,
+  "checkpoint_path": "data/robust/X2_60sensors/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.04258293294643785,
+  "field_v": 0.21528909917828898,
+  "field_mag": 0.04253773831102372,
+  "vorticity": 0.14038992204227382,
+  "vorticity_wake": 0.126539452004092,
+  "pressure": 0.09448717966675917,
+  "wss": 0.15568415754021034,
+  "wss_true_nu": 0.16142963097112736,
+  "wss_peak_ratio": 1.075818809010499,
+  "nu_true": 0.005,
+  "nu_recovered": 0.004955322942578719,
+  "nu_error": 0.008935411484256237
+ }
+}

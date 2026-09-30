@@ -1,0 +1,41 @@
+{
+ "name": "C_wide",
+ "minutes": 31.6,
+ "sensors": "random:20",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 4,
+  "hidden_units": 96,
+  "adam_lr": 0.001,
+  "adam_epochs": 8000,
+  "lbfgs_iters": 300,
+  "nu_lr_scale": 0.3,
+  "loss_weights": {
+   "data": 100.0,
+   "pde": 1.0,
+   "bc": 10.0
+  },
+  "collocation_points": 1500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "checkpoint_path": "data/screen_v1/C_wide/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.06007588827574725,
+  "field_v": 0.361878014669877,
+  "field_mag": 0.06023759884527764,
+  "vorticity": 0.16765603470099658,
+  "vorticity_wake": 0.15547519998108686,
+  "pressure": 0.26283241613426656,
+  "wss": 0.6255932906143403,
+  "wss_true_nu": 0.15485922078820624,
+  "wss_peak_ratio": 1.5798346349270347,
+  "nu_true": 0.005,
+  "nu_recovered": 0.009050704649247203,
+  "nu_error": 0.8101409298494405
+ }
+}

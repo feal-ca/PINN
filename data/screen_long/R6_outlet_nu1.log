@@ -1,0 +1,12 @@
+[R6_outlet_nu1] 20 sensors, cfg={"hidden_layers": 6, "hidden_units": 32, "adam_lr": 0.001, "adam_epochs": 10000, "lbfgs_iters": 400, "nu_lr_scale": 1.0, "loss_weights": {"data": 100, "pde": 10, "bc": 10}, "collocation_points": 2500, "resample_every": 200, "seed": 0, "threads": 3, "input_norm": true, "lr_final_frac": 0.05, "rar_frac": 0.3, "outlet_bc": true, "checkpoint_path": "data/screen_long/R6_outlet_nu1/partial.pt"}
+  [adam] epoch=     0 total=242.1665 data=2.22674 pde=0.50835 bc=1.44091 nu=0.02002
+  [adam] epoch=  1000 total=1.8567 data=0.00587 pde=0.07018 bc=0.05680 nu=0.00852
+  [adam] epoch=  2000 total=1.1900 data=0.00499 pde=0.03647 bc=0.03263 nu=0.00607
+  [adam] epoch=  3000 total=0.9766 data=0.00432 pde=0.03240 bc=0.02207 nu=0.00491
+  [adam] epoch=  4000 total=0.8504 data=0.00411 pde=0.02647 bc=0.01748 nu=0.00415
+  [adam] epoch=  5000 total=0.8056 data=0.00387 pde=0.02711 bc=0.01477 nu=0.00368
+  [adam] epoch=  6000 total=0.7792 data=0.00385 pde=0.02652 bc=0.01291 nu=0.00342
+  [adam] epoch=  7000 total=0.7527 data=0.00373 pde=0.02550 bc=0.01248 nu=0.00320
+  [adam] epoch=  8000 total=0.7511 data=0.00370 pde=0.02621 bc=0.01188 nu=0.00309
+  [adam] epoch=  9000 total=0.7242 data=0.00365 pde=0.02458 bc=0.01134 nu=0.00298
+[R6_outlet_nu1] 34.8 min | field 0.100 vort 0.230 wake-vort 0.220 wss 0.675 nu_err 0.412 (nu=0.00294)

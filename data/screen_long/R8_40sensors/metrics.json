@@ -1,0 +1,42 @@
+{
+ "name": "R8_40sensors",
+ "minutes": 34.8,
+ "sensors": "zones:0-2:6,2-4:14,4-6.5:14,6.5-9:6",
+ "sensor_seed": 0,
+ "cfg": {
+  "hidden_layers": 6,
+  "hidden_units": 32,
+  "adam_lr": 0.001,
+  "adam_epochs": 10000,
+  "lbfgs_iters": 400,
+  "nu_lr_scale": 1.0,
+  "loss_weights": {
+   "data": 100,
+   "pde": 10,
+   "bc": 10
+  },
+  "collocation_points": 2500,
+  "resample_every": 200,
+  "seed": 0,
+  "threads": 3,
+  "input_norm": true,
+  "lr_final_frac": 0.05,
+  "rar_frac": 0.3,
+  "outlet_bc": true,
+  "checkpoint_path": "data/screen_long/R8_40sensors/partial.pt"
+ },
+ "metrics": {
+  "field_u": 0.04410661483253471,
+  "field_v": 0.2402300892285589,
+  "field_mag": 0.043671759188462674,
+  "vorticity": 0.10008837957271714,
+  "vorticity_wake": 0.10837065189384182,
+  "pressure": 0.10952609390954668,
+  "wss": 0.1306647322874594,
+  "wss_true_nu": 0.1285947277245174,
+  "wss_peak_ratio": 0.9224671705467198,
+  "nu_true": 0.005,
+  "nu_recovered": 0.00498138293108024,
+  "nu_error": 0.0037234137839519885
+ }
+}
